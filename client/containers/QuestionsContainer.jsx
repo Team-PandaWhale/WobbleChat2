@@ -54,8 +54,6 @@ const QuestionsContainer = ({ questions }) => {
       <h2>
       Inactive questions </h2>
       {inactiveQuestionObjects}
-
-
     </div>
   );
 };
