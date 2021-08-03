@@ -59,11 +59,8 @@ class MainAppContainer extends Component {
       <>
         <div className="top-menu-container">
           <Link to={"/"} className="brandname">
-            Wobblechat
+            Shy Panda
           </Link>
-          <div className="createQuestionForm">
-          <CreateQuestionForm />
-          </div>
           <div>
             <Link to={"/create"}>
               <Button variant="primary">Ask a question</Button>
@@ -79,7 +76,9 @@ class MainAppContainer extends Component {
           <Chat />
         </Card> */}
         <br />
-
+        <div className="createQuestionForm">
+          <CreateQuestionForm />
+          </div>
         <QuestionsContainer questions={this.state.questions} />
       </>
     );
