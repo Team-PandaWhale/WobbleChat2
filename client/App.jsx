@@ -12,7 +12,13 @@ const App = () => {
     <Router>
       <Route path="/login" component={Login} />
       <Route exact={true} path="/">
+<<<<<<< HEAD
         <MainAppContainer />
+=======
+      {/* <ProtectedRoute exact={true} path="/"> */}
+        <MainAppContainer />
+        {/* </ProtectedRoute */}
+>>>>>>> 43fcf343300fdacc45987578d182b6cd59af6fd7
       </Route>
     </Router>
   );
