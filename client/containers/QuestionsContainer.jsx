@@ -8,7 +8,7 @@ const QuestionsContainer = ({ questions }) => {
   //questions object passed down as prop from MainAppContainer
   //  const [{ questionId, isActive, title, description, chatURL }] = questions;
 
-  console.log(questions);
+  // console.log(questions);
 
 
   const activeQuestionObjects = questions.map(
