@@ -118,6 +118,13 @@ body {
   padding-top: 10px;
 }
 
+.createQuestionForm{
+  display: flex;
+  flex-direction: row;
+  background: orange;
+  height: 100px;
+}
+
 .chat-style{
   background-color: cadetblue;
 }
