@@ -61,6 +61,9 @@ class MainAppContainer extends Component {
           <Link to={"/"} className="brandname">
             Wobblechat
           </Link>
+          <div className="createQuestionForm">
+          <CreateQuestionForm />
+          </div>
           <div>
             <Link to={"/create"}>
               <Button variant="primary">Ask a question</Button>
@@ -78,7 +81,6 @@ class MainAppContainer extends Component {
         <br />
 
         <QuestionsContainer questions={this.state.questions} />
-        <CreateQuestionForm />
       </>
     );
   }

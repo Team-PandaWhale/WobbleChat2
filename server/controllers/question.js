@@ -21,17 +21,17 @@ questionController.getQuestions = (req, res, next) => {
     })
 }
 
-//postQuestion should create a Question and next() will call openChat
+// postQuestion should create a Question and next() will call openChat
 questionController.postQuestion = (req, res, next) => {
   // ----------> url comes from websockets - 
-  //userid comes from user controller (prev step in create question). 
+  // userid comes from user controller (prev step in create question). 
 
-  const url = "testKenny22"
+  const url = "testLucas2"
   const { ssid } = req.cookies; // { id: 7 }
   const { title, description } = req.body;
-  const params = [url,title,description,ssid];
+  const params = [url, title,description, ssid];
   const insertQuestion = 'INSERT INTO questions (url,title,description,creator) VALUES ($1,$2,$3,$4) RETURNING questions'
-
+  console.log('SSID', ssid)
   pool
     .query(insertQuestion, params)
     .then(data => {
