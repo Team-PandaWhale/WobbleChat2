@@ -8,7 +8,7 @@
     "build": "NODE_ENV=production webpack",
     "start": "concurrently 'npm run client:start' 'npm run server:start'",
     "client:start": "NODE_ENV=development webpack serve --open",
-    "server:start": "NODE_ENV=development nodemon server/app.js"
+    "server:start": "NODE_ENV=development nodemon server/server.js"
   },
   "repository": {
     "type": "git",
