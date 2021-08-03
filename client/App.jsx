@@ -11,13 +11,26 @@ const App = () => {
   return (
     <Router>
       <Route path="/login" component={Login} />
-      <Route exact={true} path="/">
-      {/* <ProtectedRoute exact={true} path="/"> */}
+      <ProtectedRoute exact={true} path="/">
         <MainAppContainer />
-        {/* </ProtectedRoute */}
-      </Route>
+      </ProtectedRoute>
     </Router>
   );
 };
 
 export default App;
+
+/*
+<Router>
+<Route exact path="/login">
+  <Login />
+</Route>
+<Route exact={true} path="/">
+  <ProtectedRoute exact={true} path="/">
+  <MainAppContainer />
+  </ProtectedRoute />
+</Route>
+</Router>
+
+
+*/
