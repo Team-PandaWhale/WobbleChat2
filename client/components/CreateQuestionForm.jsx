@@ -1,6 +1,8 @@
 import React from 'react';
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
+import axios from 'axios';
+import regeneratorRuntime from "regenerator-runtime";
 
 //There will only be one instance of this component on the page
 //Requirements: one inherited prop: userId, must interact with DB and consequently update state upon confirmation of 
@@ -12,35 +14,50 @@ const CreateQuestionForm = (props) => {
   const [title, setTitle] = useState('');
   const [description, setDescription] = useState('');
   
-  //not working
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    alert(`This is what was submitted: ${title}`);
+  // not working
+  const handleSubmit = async (e) => {
+    console.log('title', title);
+    console.log('description', description)
+    // e.preventDefault();
+    // alert(`This is what was submitted: ${title}`);
+    console.log(`sending an axios post method with ${title} and ${description}`);
+    try {
+      await axios ({
+        method: 'post',
+        url: '/api/questions',
+        data: {
+          title: title,
+          description: description,
+        }
+      })
+    } catch (error) {
+      console.log(error)
+    }
   }
 
   return (
     <form onSubmit={handleSubmit}>
-      <label>
-        Title:
+      <label id = 'title'>
         <input
         type="text" 
         value={title} 
+        placeholder="Title"
         onChange={e => setTitle(e.target.value )}
         />
       </label>
       <br/>
-      <label>
-        Description:
+      <label id = 'description'>
         <input
         type="text" 
         value={description} 
+        placeholder="Description"
         onChange={e => setDescription(e.target.value )}
         />
       </label>
       <br/>
       <input type="submit" value="Submit" />
 
-      <li>Question title is: { title } </li>
+      {/* <li>Question title is: { title } </li> */}
     </form>
   );
 }
