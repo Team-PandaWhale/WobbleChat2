@@ -72,9 +72,9 @@ class MainAppContainer extends Component {
           </div>
         </div>
 
-        <Card className="chat-style">
+        {/* <Card className="chat-style">
           <Chat />
-        </Card>
+        </Card> */}
         <br />
 
         <QuestionsContainer questions={this.state.questions} />
