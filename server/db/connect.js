@@ -5,11 +5,11 @@ const { Pool } = require("pg");
 // This object is used inside of our controllers.
 //postgres://pjtqiuob:sbbbIBrmwahaBwTEdj1IK4gg7QBU4ypw@chunee.db.elephantsql.com/pjtqiuob
 const uri =
-  // 'postgres://pjtqiuob:sbbbIBrmwahaBwTEdj1IK4gg7QBU4ypw@chunee.db.elephantsql.com/pjtqiuob';
-  "postgres://pyrlesph:y49KNIFGACz5VEWNtTL8QH8auBdno8ha@chunee.db.elephantsql.com/pyrlesph";
+  // "postgres://pjtqiuob:sbbbIBrmwahaBwTEdj1IK4gg7QBU4ypw@chunee.db.elephantsql.com/pjtqiuob"; //- Nate
+  // "postgres://pyrlesph:y49KNIFGACz5VEWNtTL8QH8auBdno8ha@chunee.db.elephantsql.com/pyrlesph"; //- Harrison??
+  "postgres://zrusaaod:hCG6U1Ax0LW9F9N38RkgKPjqjHwbS8tb@chunee.db.elephantsql.com/zrusaaod"; //Gal
 const pool = new Pool({
   connectionString: uri,
-}
-);
+});
 
 module.exports = pool;
