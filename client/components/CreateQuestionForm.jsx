@@ -18,9 +18,9 @@ const CreateQuestionForm = (props) => {
   const handleSubmit = async (e) => {
     console.log('title', title);
     console.log('description', description)
-    e.preventDefault();
+    // e.preventDefault();
     // alert(`This is what was submitted: ${title}`);
-    console.log(`sending an axios post method with ${title} and ${description}`)
+    console.log(`sending an axios post method with ${title} and ${description}`);
     try {
       await axios ({
         method: 'post',
@@ -37,20 +37,20 @@ const CreateQuestionForm = (props) => {
 
   return (
     <form onSubmit={handleSubmit}>
-      <label>
-        Title:
+      <label id = 'title'>
         <input
         type="text" 
         value={title} 
+        placeholder="Title"
         onChange={e => setTitle(e.target.value )}
         />
       </label>
       <br/>
-      <label>
-        Description:
+      <label id = 'description'>
         <input
         type="text" 
         value={description} 
+        placeholder="Description"
         onChange={e => setDescription(e.target.value )}
         />
       </label>
