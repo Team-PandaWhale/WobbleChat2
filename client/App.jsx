@@ -11,9 +11,9 @@ const App = () => {
   return (
     <Router>
       <Route path="/login" component={Login} />
-      <ProtectedRoute exact={true} path="/">
+      <Route exact={true} path="/">
         <MainAppContainer />
-      </ProtectedRoute>
+      </Route>
     </Router>
   );
 };
