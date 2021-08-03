@@ -3,6 +3,7 @@
 const pool = require("../db/connect");
 
 const questionController = {};
+let dummyCounter = 2;
 
 //getQuestions should return an array of Questions
 questionController.getQuestions = (req, res, next) => {
@@ -26,6 +27,7 @@ questionController.getQuestions = (req, res, next) => {
 questionController.postQuestion = (req, res, next) => {
   // ----------> url comes from websockets -
   //userid comes from user controller (prev step in create question).
+<<<<<<< HEAD
 
   //url must be unique each time
   const url = "testKenny2";
@@ -37,7 +39,21 @@ questionController.postQuestion = (req, res, next) => {
     "INSERT INTO questions (url,title,description,creator) VALUES ($1,$2,$3,$4) RETURNING questions";
 
   console.log("SSID", ssid);
+=======
+  dummyCounter++;
+  const url = `testLucas${dummyCounter}`;
+  // const { ssid } = req.cookies; // { id: 7 }
+  
+  const ssid = 1;
+  const { title, description } = req.body;
+  const params = [url, title, description, ssid];
+  const insertQuestion =
+    "INSERT INTO questions (url, title, description, creator) VALUES ($1,$2,$3,$4) RETURNING questions";
+>>>>>>> dev
 
+  console.log('SSID', ssid )
+ 
+  console.log(dummyCounter, 'DUMMY COUNTER')
   pool
     .query(insertQuestion, params)
     .then((data) => {
