@@ -36,26 +36,27 @@ const CreateQuestionForm = (props) => {
   }
 
   return (
-    <form onSubmit={handleSubmit}>
+    <form className="topForm" onSubmit={handleSubmit}>
       <label id = 'title'>
-        <input
+        <textarea
         type="text" 
         value={title} 
         placeholder="Subject"
         onChange={e => setTitle(e.target.value )}
         />
       </label>
-      <br/>
       <label id = 'description'>
-        <input
+        <textarea
         type="text" 
         value={description} 
         placeholder="Question"
         onChange={e => setDescription(e.target.value )}
         />
       </label>
-      <br/>
-      <input type="submit" value="Submit" />
+      <div className="submitQuestion">
+        <input type="submit" value="Submit" />
+      </div>
+      
 
       {/* <li>Question title is: { title } </li> */}
     </form>
