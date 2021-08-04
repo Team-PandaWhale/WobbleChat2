@@ -3,7 +3,7 @@ import { useState, useEffect } from "react";
 // import { FontAwesomeIcon as FAIcon } from '@fortawesome/react-fontawesome';
 // import { faQuestionCircle } from '@fortawesome/free-regular-svg-icons';
 import { Link } from "react-router-dom";
-import axios from 'axios';
+import axios from "axios";
 import Card from "react-bootstrap/Card";
 import Button from "react-bootstrap/Button";
 import regeneratorRuntime from "regenerator-runtime";
@@ -14,16 +14,15 @@ const QuestionCard = (props) => {
   const [dropDownVisible, setDropDownVisible] = useState(false);
   const [answerBoxVisible, setAnswerBoxVisible] = useState(false);
   const [posted, setPosted] = useState(false);
-  const [answer, setAnswer] = useState('');
+  const [answer, setAnswer] = useState("");
 
   useEffect(() => {
-    console.log('TESTING USE EFFECT')
+    console.log("TESTING USE EFFECT");
     return function cleanup() {
-      setAnswer('');
+      setAnswer("");
       setAnswerBoxVisible(false);
-    }
+    };
   }, [posted]);
-
 
   const handleClick = (e) => {
     console.log(answer);
@@ -31,7 +30,7 @@ const QuestionCard = (props) => {
     // try {
     //   await axios({
     //     method: 'post',
-    //     url: '/api/answer',
+    //     url: '/api/answers',
     //     data: {
     //       answer: answer,
     //     }
@@ -43,28 +42,33 @@ const QuestionCard = (props) => {
       <div className="answerText">
         <p>{answer}</p>
       </div>
-    )
-  }
+    );
+  };
 
   function renderDropDown() {
     console.log("TESTING RENDER DROP DOWN");
     return (
-
       <div className="dropdown-body">
-        <input type="text"
-        value = {answer}
-        placeholder='Answer'
-        onChange={e => {
-          if (posted) return;
-         setAnswer (e.target.value)
-        }}
+        <input
+          type="text"
+          value={answer}
+          placeholder="Answer"
+          onChange={(e) => {
+            if (posted) return;
+            setAnswer(e.target.value);
+          }}
         />
-        <button onClick={() => {
-          if (answerBoxVisible) return;
-          setDropDownVisible(false);
-          setPosted(!posted)
-          setAnswerBoxVisible(!answerBoxVisible)
-        }}> Post Answer </button>
+        <button
+          onClick={() => {
+            if (answerBoxVisible) return;
+            setDropDownVisible(false);
+            setPosted(!posted);
+            setAnswerBoxVisible(!answerBoxVisible);
+          }}
+        >
+          {" "}
+          Post Answer{" "}
+        </button>
       </div>
     );
   }
@@ -85,8 +89,10 @@ const QuestionCard = (props) => {
           >
             Answer question
           </Button>
-          
-          <div className="answerInput">{dropDownVisible && renderDropDown()}</div>
+
+          <div className="answerInput">
+            {dropDownVisible && renderDropDown()}
+          </div>
         </div>
       </Card.Body>
     </Card>
