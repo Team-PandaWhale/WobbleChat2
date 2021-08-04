@@ -15,19 +15,44 @@ const QuestionCard = (props) => {
   const [answerBoxVisible, setAnswerBoxVisible] = useState(false);
   const [posted, setPosted] = useState(false);
   const [answer, setAnswer] = useState("");
+  const [answerArray, setAnswerArray] = useState([]);
 
   // console.log("id equals: ", id);
 
-  useEffect(() => {
-    // console.log("TESTING USE EFFECT");
-    return function cleanup() {
-      setAnswer("");
-      setAnswerBoxVisible(false);
-    };
-  }, [posted]);
+  useEffect(async () => {
+    try {
+      const result = await axios({
+        method: "get",
+        url: "/api/answers/getAnswers",
+        params: {
+          questionId: id,
+        },
+      });
+      console.log('USE EFFECT RAN AGAIN');
+      // console.log('result in use effect axios call is: ', result);
+      const array = [];
+      for (let i = result.data.length - 1; i > result.data.length - 6; i--) {
+        const el = result.data[i];
+        // console.log("What is being put in our el var", el);
+        array.push(
+          <div key={i}>
+            <p>{el.content}</p>
+          </div>
+        );
+      }
+      setAnswerArray(array);
+    } catch (error) {
+      console.log("there was an error getting errors: ", error);
+    }
+
+    // return function cleanup() {
+    //   setAnswer("");
+    //   setAnswerBoxVisible(false);
+    // };
+  }, []);
 
   const handleClick = async (e) => {
-    console.log("ANSWER IS", answer);
+    // console.log("ANSWER IS", answer);
     // e.preventDefault();
     try {
       const test = await axios({
@@ -39,19 +64,19 @@ const QuestionCard = (props) => {
           content: answer,
         },
       });
-      console.log('TEST VARIABLE IS', test);
+      // console.log('TEST VARIABLE IS', test);
     } catch (error) {
       console.log(error);
     }
     return (
       <div className="answerText">
-        <p>{'placeHolder'}</p>
+        <p>{"placeHolder"}</p>
       </div>
     );
   };
 
   function renderDropDown() {
-    console.log("TESTING RENDER DROP DOWN");
+    // console.log("TESTING RENDER DROP DOWN");
     return (
       <div className="dropdown-body">
         <input
@@ -85,7 +110,7 @@ const QuestionCard = (props) => {
           <Card.Title>Subject: {title}</Card.Title>
         </div>
         <Card.Text>Question: {description}</Card.Text>
-        <div className="answersBox">{}</div>
+        <div className="answersBox">{answerArray}</div>
         <div className="answerButton">
           <Button
             variant="primary"

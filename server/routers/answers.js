@@ -13,4 +13,14 @@ answersController.getAnswers,
   return res.status(200).json(res.locals.answers);
 });
 
+router.get("/getAnswers", 
+answersController.getAnswers,
+(req, res) => {
+  // console.log(
+  //   "we made it back to the router after the answersController.postAnswers", res.locals.newAnswers
+  // );
+  return res.status(200).json(res.locals.answers);
+});
+
+
 module.exports = router;
