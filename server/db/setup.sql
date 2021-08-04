@@ -11,6 +11,8 @@ CREATE TABLE IF NOT EXISTS users (
   isLoggedIn boolean DEFAULT true
 );
 
+
+
 CREATE TABLE IF NOT EXISTS questions (
   id SERIAL PRIMARY KEY,
   title varchar(500) NOT NULL,
@@ -22,7 +24,7 @@ CREATE TABLE IF NOT EXISTS questions (
 );
 
   /* Can you do a foreign key reference of a boolean in another table? The boolean is not a key... */
-CREATE TABLE IF NOT EXISTS messages (
+CREATE TABLE IF NOT EXISTS answers (
   id SERIAL PRIMARY KEY,
   dateCreated date NOT NULL,
   questionId integer REFERENCES questions(id),
