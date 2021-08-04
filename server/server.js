@@ -18,9 +18,9 @@ app.get("/api/hello", (req, res) => {
   res.status(200).json({ hello: "world" });
 });
 
-app.use("/users", userRouter);
-app.use('/api/questions', questionRouter);
-app.use('/messages', messageRouter);
+app.use("/api/users", userRouter);
+app.use("/api/questions", questionRouter);
+app.use("/messages", messageRouter);
 // //route handler for main page
 // app.get('/', (req,res) => {
 //   res.sendFile(path.resolve(__dirname, '../client/index.html'));

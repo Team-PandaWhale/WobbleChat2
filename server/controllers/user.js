@@ -39,6 +39,7 @@ userController.createUser = async (req, res, next) => {
 };
 
 userController.loginUser = async (req, res, next) => {
+  console.log("SUCCESSFULLY MADE IT TO LOGIN USER MIDDLEWARE");
   const { username, password } = req.body;
   if (!username || !password)
     return next(new Error("Need to supply username and password"));
@@ -56,12 +57,18 @@ userController.loginUser = async (req, res, next) => {
       });
 
     user = rows[0];
+    console.log(
+      "usercontroller.loginUser - we have successfully found the user in the database: ",
+      user
+    );
   } catch (err) {
     return next({
       status: 500,
       message: err.message,
     });
   }
+
+  //Need to perhaps consider the fact that we haven't bcrypted the password yet ----- NOTE -----
 
   // Verify that password matches the hashed password in the DB
   const compared = await bcrypt.compare(password, user.password);
@@ -73,7 +80,10 @@ userController.loginUser = async (req, res, next) => {
 
   // Pass user's ID to be set as cookie in next controller
   res.locals.id = user.id;
-
+  console.log(
+    "usercontroller.loginuser - we have set res.locals: ",
+    res.locals.id
+  );
   // If username and password are valid, create cookie for user
   return next();
 };

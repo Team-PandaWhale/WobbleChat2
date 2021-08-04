@@ -25,6 +25,7 @@ const Login = (props) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    console.log(userData);
     fetch("/api/users/login", {
       method: "POST",
       headers: {
@@ -36,6 +37,10 @@ const Login = (props) => {
       }),
     })
       .then((response) => {
+        console.log(
+          "we have successfully made a post request with the user data",
+          response
+        );
         history.push("/");
       })
       .catch((err) => {
