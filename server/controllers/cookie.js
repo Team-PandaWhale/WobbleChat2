@@ -13,7 +13,7 @@ cookieController.setCookies = (_req, res, next) => {
       expires: new Date(Date.now() + 1200000),
       httpOnly: false,
     });
-
+    console.log("We have successfully set the cookies with ssid");
     return next();
   } catch (err) {
     return next({
