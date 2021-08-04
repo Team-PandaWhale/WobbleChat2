@@ -134,16 +134,17 @@ button {
   background-color: cadetblue;
 }
 
-#title {
+/* #title {
   /* max-width: 40rem;
   min-width: 40rem;
   height: 100px; */
-}
+/* } */ 
+
 .card {
   display: flex;
   justify-content: center;
   min-width: 60rem;
-  height: 200px;
+  height: 100%;
   margin-bottom: 30px;
 }
 
@@ -154,8 +155,13 @@ button {
 .answerButton {
   display: flex;
   justify-content: center;
+  flex-direction: column;
+  align-items: center;
   margin-top: 60px;
-  
+}
+
+.answerInput {
+  margin-top: 10px;
 }
 
 .min-button{
