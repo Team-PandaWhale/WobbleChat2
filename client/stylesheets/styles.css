@@ -126,7 +126,8 @@ button {
 }
 
 .createQuestionForm input {
-  width: 20rem;
+  width: 40rem;
+  margin-bottom: 5px;
   background-color: white;
 }
 
@@ -134,11 +135,10 @@ button {
   background-color: cadetblue;
 }
 
+
 /* #title {
-  /* max-width: 40rem;
-  min-width: 40rem;
-  height: 100px; */
-/* } */ 
+  height: 100px;
+} */
 
 .card {
   display: flex;

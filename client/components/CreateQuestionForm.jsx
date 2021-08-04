@@ -16,11 +16,11 @@ const CreateQuestionForm = (props) => {
   
 
   const handleSubmit = async (e) => {
-    console.log('title', title);
-    console.log('description', description)
+    // console.log('title', title);
+    // console.log('description', description)
     // e.preventDefault();
     // alert(`This is what was submitted: ${title}`);
-    console.log(`sending an axios post method with ${title} and ${description}`);
+    // console.log(`sending an axios post method with ${title} and ${description}`);
     try {
       await axios ({
         method: 'post',
