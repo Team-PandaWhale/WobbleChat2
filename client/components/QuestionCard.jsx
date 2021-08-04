@@ -19,9 +19,10 @@ const QuestionCard = (props) => {
   useEffect(() => {
     console.log('TESTING USE EFFECT')
     return function cleanup() {
+      setAnswer('');
       setAnswerBoxVisible(false);
     }
-  }, posted);
+  }, [posted]);
 
 
   const handleClick = (e) => {
@@ -55,7 +56,7 @@ const QuestionCard = (props) => {
         placeholder='Answer'
         onChange={e => {
           if (posted) return;
-          setAnswer(e.target.value)
+         setAnswer (e.target.value)
         }}
         />
         <button onClick={() => {

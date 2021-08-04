@@ -8,6 +8,7 @@ const userRouter = require("./routers/user.js");
 const globalErrorHandler = require("./routers/errors");
 const questionRouter = require("./routers/question.js");
 const messageRouter = require("./routers/message.js");
+const answerRouter = require('./routers/answers.js')
 
 //parsing request body
 app.use(express.json());
@@ -21,6 +22,7 @@ app.get("/api/hello", (req, res) => {
 app.use("/users", userRouter);
 app.use('/api/questions', questionRouter);
 app.use('/messages', messageRouter);
+app.use('/answers', answerRouter);
 // //route handler for main page
 // app.get('/', (req,res) => {
 //   res.sendFile(path.resolve(__dirname, '../client/index.html'));
