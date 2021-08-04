@@ -1,6 +1,7 @@
 import React from "react";
 import { BrowserRouter as Router, Route } from "react-router-dom";
 
+import Signup from "./Signup";
 import Login from "./Login";
 import ProtectedRoute from "./ProtectedRoute";
 import MainAppContainer from "./containers/MainAppContainer";
@@ -11,13 +12,27 @@ const App = () => {
   return (
     <Router>
       <Route path="/login" component={Login} />
-      <Route exact={true} path="/">
-      {/* <ProtectedRoute exact={true} path="/"> */}
+      <Route path="/signup" component={Signup} />
+      <ProtectedRoute exact={true} path="/">
         <MainAppContainer />
-        {/* </ProtectedRoute */}
-      </Route>
+      </ProtectedRoute>
     </Router>
   );
 };
 
 export default App;
+
+/*
+<Router>
+<Route exact path="/login">
+  <Login />
+</Route>
+<Route exact={true} path="/">
+  <ProtectedRoute exact={true} path="/">
+  <MainAppContainer />
+  </ProtectedRoute />
+</Route>
+</Router>
+
+
+*/

@@ -1,16 +1,10 @@
-const express = require('express');
+const express = require("express");
+const answersController = require("../controllers/answers.js");
 const router = express.Router();
-const answerController = require('../controllers/answers.js');
 
-
-router.get('/', answerController.getQuestions, (req,res) => {
-  return res.status(200).json();
-})
-
-//create new question ----> needs websockets
-router.post('/', answerController.postQuestion, answerController.getQuestions, (req,res) => {
-  return res.status(200).json();
-})
-
+//create new message where body comes from websocket
+router.post("/", answersController.postAnswers, (req, res) => {
+  return res.status(200).json(res.locals.newAnswers);
+});
 
 module.exports = router;

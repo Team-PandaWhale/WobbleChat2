@@ -2,9 +2,8 @@ import React from "react";
 import { useState } from "react";
 import { useHistory } from "react-router-dom";
 import auth from "./Auth";
-import { Link, withRouter } from "react-router-dom";
 
-const Login = (props) => {
+const Signup = (props) => {
   const [userData, setUserData] = useState({ username: "", password: "" });
   const history = useHistory();
 
@@ -27,7 +26,7 @@ const Login = (props) => {
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log(userData);
-    fetch("/api/users/login", {
+    fetch("/api/users/signup", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -52,7 +51,7 @@ const Login = (props) => {
 
   return (
     <div>
-      <h1>Welcome, please log in.</h1>
+      <h1>Welcome, please sign up.</h1>
       <form onSubmit={handleSubmit}>
         <input
           id="username"
@@ -71,12 +70,9 @@ const Login = (props) => {
           onChange={handlePasswordInputChange}
         />
         <input type="submit" value="submit" />
-        <p>
-          Don't have an account? Sign up <Link to="/signup">here</Link>
-        </p>
       </form>
     </div>
   );
 };
 
-export default Login;
+export default Signup;
