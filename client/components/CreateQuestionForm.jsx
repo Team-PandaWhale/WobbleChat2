@@ -14,7 +14,7 @@ const CreateQuestionForm = (props) => {
   const [title, setTitle] = useState('');
   const [description, setDescription] = useState('');
   
-  // not working
+
   const handleSubmit = async (e) => {
     console.log('title', title);
     console.log('description', description)
@@ -41,7 +41,7 @@ const CreateQuestionForm = (props) => {
         <input
         type="text" 
         value={title} 
-        placeholder="Title"
+        placeholder="Subject"
         onChange={e => setTitle(e.target.value )}
         />
       </label>
@@ -50,7 +50,7 @@ const CreateQuestionForm = (props) => {
         <input
         type="text" 
         value={description} 
-        placeholder="Description"
+        placeholder="Question"
         onChange={e => setDescription(e.target.value )}
         />
       </label>
