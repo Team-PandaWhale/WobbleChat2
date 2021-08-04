@@ -3,7 +3,7 @@
 const pool = require("../db/connect");
 
 const questionController = {};
-let dummyCounter = 50;
+let dummyCounter = 100;
 
 //getQuestions should return an array of Questions
 questionController.getQuestions = (req, res, next) => {
