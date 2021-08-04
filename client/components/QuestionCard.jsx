@@ -16,31 +16,36 @@ const QuestionCard = (props) => {
   const [posted, setPosted] = useState(false);
   const [answer, setAnswer] = useState("");
 
+  // console.log("id equals: ", id);
+
   useEffect(() => {
-    console.log("TESTING USE EFFECT");
+    // console.log("TESTING USE EFFECT");
     return function cleanup() {
       setAnswer("");
       setAnswerBoxVisible(false);
     };
   }, [posted]);
 
-  const handleClick = (e) => {
-    console.log(answer);
+  const handleClick = async (e) => {
+    console.log("ANSWER IS", answer);
     // e.preventDefault();
-    // try {
-    //   await axios({
-    //     method: 'post',
-    //     url: '/api/answers',
-    //     data: {
-    //       answer: answer,
-    //     }
-    //   })
-    // } catch (error) {
-    //   console.log(error)
-    // }
+    try {
+      const test = await axios({
+        method: "post",
+        url: "/api/answers",
+        data: {
+          dateCreated: "1/1/2020",
+          questionId: id,
+          content: answer,
+        },
+      });
+      console.log('TEST VARIABLE IS', test);
+    } catch (error) {
+      console.log(error);
+    }
     return (
       <div className="answerText">
-        <p>{answer}</p>
+        <p>{'placeHolder'}</p>
       </div>
     );
   };
@@ -54,7 +59,7 @@ const QuestionCard = (props) => {
           value={answer}
           placeholder="Answer"
           onChange={(e) => {
-            if (posted) return;
+            // if (posted) return;
             setAnswer(e.target.value);
           }}
         />
@@ -63,11 +68,11 @@ const QuestionCard = (props) => {
             if (answerBoxVisible) return;
             setDropDownVisible(false);
             setPosted(!posted);
-            setAnswerBoxVisible(!answerBoxVisible);
+            setAnswerBoxVisible(true);
+            handleClick();
           }}
         >
-          {" "}
-          Post Answer{" "}
+          Post Answer
         </button>
       </div>
     );
@@ -80,7 +85,7 @@ const QuestionCard = (props) => {
           <Card.Title>Subject: {title}</Card.Title>
         </div>
         <Card.Text>Question: {description}</Card.Text>
-        <div className="answersBox">{answerBoxVisible && handleClick()}</div>
+        <div className="answersBox">{}</div>
         <div className="answerButton">
           <Button
             variant="primary"
@@ -91,7 +96,7 @@ const QuestionCard = (props) => {
           </Button>
 
           <div className="answerInput">
-            {dropDownVisible && renderDropDown()}
+            {[dropDownVisible && renderDropDown()]}
           </div>
         </div>
       </Card.Body>
