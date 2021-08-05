@@ -4,7 +4,7 @@
   "description": "An anonymous, lightweight chatroom for developers.",
   "main": "webpack.config.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "jest --verbose",
     "build": "NODE_ENV=production webpack",
     "start": "concurrently 'npm run client:start' 'npm run server:start'",
     "client:start": "NODE_ENV=development webpack serve --open",
@@ -21,6 +21,10 @@
     "url": "https://github.com/WobbleChat/wobblechat/issues"
   },
   "homepage": "https://github.com/WobbleChat/wobblechat#readme",
+  "jest": {
+    "globalSetup": "./jest-setup.js",
+    "globalTeardown": "./jest-teardown.js"
+  },
   "dependencies": {
     "axios": "^0.21.1",
     "bcryptjs": "^2.4.3",
@@ -44,10 +48,12 @@
     "concurrently": "^6.2.0",
     "css-loader": "^6.2.0",
     "html-webpack-plugin": "^5.3.2",
+    "jest": "^27.0.6",
     "nodemon": "^2.0.12",
     "sass": "^1.36.0",
     "sass-loader": "^12.1.0",
     "style-loader": "^3.2.1",
+    "supertest": "^6.1.4",
     "webpack-cli": "^4.7.2",
     "webpack-dev-server": "^3.11.2"
   }

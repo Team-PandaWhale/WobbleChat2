@@ -26,7 +26,7 @@ const QuestionCard = (props) => {
       if (!el) return;
       // console.log("What is being put in our el var", el);
       array.unshift(
-        <div key={i}>
+        <div className="indivQuestion"key={i}>
           <p>Answer: {el.content}</p>
         </div>
       );
@@ -102,20 +102,19 @@ const QuestionCard = (props) => {
   }
 
   return (
-    <div className="cardBox">
-      <div className="question-container">
+    <div className="question-container">
+      <div className="topQuestionBox">
         <p>Subject: {title}</p>
         <p>Question: {description}</p>
       </div>
       <div className="answersBox">{answerArray}</div>
       <div className="answerButton">
-        <Button
-          variant="primary"
+        <button
           className="min-button"
           onClick={() => setDropDownVisible(!dropDownVisible)}
         >
           Answer question
-        </Button>
+        </button>
 
         <div className="answerInput">
           {[dropDownVisible && renderDropDown()]}
