@@ -5,15 +5,15 @@ cookieController.setCookies = (_req, res, next) => {
   try {
     const { id } = res.locals;
     res.cookie("ssid", id, {
-      expires: new Date(Date.now() + 1200000),
+      expires: new Date(Date.now() + 120000000),
       httpOnly: true,
     });
 
     res.cookie("loggedIn", true, {
-      expires: new Date(Date.now() + 1200000),
+      expires: new Date(Date.now() + 1200000000),
       httpOnly: false,
     });
-
+    console.log("We have successfully set the cookies with ssid");
     return next();
   } catch (err) {
     return next({

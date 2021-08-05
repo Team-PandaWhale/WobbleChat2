@@ -1,7 +1,7 @@
-
 /* Google font "Faustina" for brandname */
 
-@import url('https://fonts.googleapis.com/css2?family=Faustina&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Faustina&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Arimo:wght@600&family=Fira+Sans:wght@500&family=Karla:wght@500&display=swap');
 
 /* reset default styles */
 *,
@@ -18,8 +18,15 @@
 
 html {
   box-sizing: border-box;
-  font: 100% 'Source Sans Pro', sans-serif;
+  font-family: "Arimo", sans-serif;
+}
 
+::placeholder {
+  color: white;
+}
+
+textarea:focus, input:focus{
+  outline: none;
 }
 
 /* app container styling */
@@ -27,35 +34,17 @@ body {
   margin: 0px;
   padding-left: 1rem;
   padding-right: 1rem;
-  background: rgba(22, 22, 22, 0.915);
-  color: #e4e4e4;
-  background-color: rgb(209, 209, 209) !important;
-  padding-bottom:50px;
+  background-color: #14212c !important;
 }
 
 a {
   text-decoration: none;
 }
 
-h1 {
-  font-size: 2.2rem;
-}
 
 h2 {
-  font-size: 1.6rem !important;
-  font-weight: bold !important;
-  font-family: 'Faustina';
-
-}
-
-h3 {
-  font-size: 1.3rem;
-}
-
-
-
-small {
-  font-size: 1.1rem;
+  font-family: "Faustina";
+  color: white;
 }
 
 figure {
@@ -72,76 +61,81 @@ ul {
 }
 
 button {
-  border-radius: 0;
-  background: transparent;
+  border-radius: 100px;
+  background-color: #202e3a;
+  box-shadow: none;
 }
 
-.question-container{
+.question-container {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 10px;;
+  margin-bottom: 10px;
 }
 
-.question-window{
+.question-window {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
 }
 
-
-
 .mainSection {
   margin-bottom: 5rem;
 }
 
-
 .brandname {
-  font-family: 'Faustina';
+  font-family: "Faustina";
   font-size: 40px;
   text-decoration: none;
   font-weight: bold;
-  color:black;
-
+  color: white;
 }
 
-.top-menu-container{
+.top-menu-container {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 10px;
+  margin-bottom: 0px;
   padding-top: 10px;
 }
 
-.createQuestionForm { 
+.createQuestionForm {
   display: flex;
   justify-content: center;
   min-width: 20rem;
   height: 200px;
-  margin-bottom: 30px; 
-  
+  margin-bottom: 10px;
 }
 
-.createQuestionForm input {
-  width: 20rem;
-  background-color: white;
+.createQuestionForm label {
+  color: white;
 }
 
-.chat-style{
-  background-color: cadetblue;
+.createQuestionForm textarea {
+  width: 40rem;
+  margin-bottom: 5px;
+  background-color: #202e3a;
+  color: white;
+  max-height: 100%;
+  overflow: auto;
 }
 
-/* #title {
-  /* max-width: 40rem;
-  min-width: 40rem;
-  height: 100px; */
-/* } */ 
+.topForm {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+.topForm input {
+  max-width: 80px;
+}
 
 .card {
   display: flex;
+  font-size: 25px;
   justify-content: center;
   min-width: 60rem;
   height: 100%;
@@ -150,6 +144,18 @@ button {
 
 .card-body {
   min-width: 40rem;
+  background-color: #202e3a;
+  font-family: "Arimo", sans-serif;
+  font-size: 25px;
+  color: white;
+}
+
+.cardBox {
+  border: 2px solid white;
+  max-width: 500px;
+  min-width: 400px;
+  color: white;
+  margin-bottom: 20px;
 }
 
 .answerButton {
@@ -164,18 +170,61 @@ button {
   margin-top: 10px;
 }
 
-.min-button{
+.submitQuestion input {
+  width: 80px;
+  border-color: none;
+  border-radius: 15px;
+}
+
+.min-button {
   min-width: 150px;
-  margin-left:5px;
+  margin-left: 5px;
+}
+
+.dropdown-body button {
+  margin-left: 10px;
+  color: white;
+  border-radius: 5px;
 }
 
 /* Chatroom styling */
 
-#form-chat { background: rgba(0, 0, 0, 0.15); padding: 0.25rem; display: flex; height: 3rem; box-sizing: border-box; backdrop-filter: blur(10px); }
-      #input-chat { border: none; padding: 0 1rem; flex-grow: 1; border-radius: 2rem; margin: 0.25rem; }
-      #input-chat:focus { outline: none; }
-      #form-chat > button { background: #333; border: none; padding: 0 1rem; margin: 0.25rem; border-radius: 3px; outline: none; color: #fff; }
+#form-chat {
+  background: rgba(0, 0, 0, 0.15);
+  padding: 0.25rem;
+  display: flex;
+  height: 3rem;
+  box-sizing: border-box;
+  backdrop-filter: blur(10px);
+}
+#input-chat {
+  border: none;
+  padding: 0 1rem;
+  flex-grow: 1;
+  border-radius: 2rem;
+  margin: 0.25rem;
+}
+#input-chat:focus {
+  outline: none;
+}
+#form-chat > button {
+  background: #333;
+  border: none;
+  padding: 0 1rem;
+  margin: 0.25rem;
+  border-radius: 3px;
+  outline: none;
+  color: #fff;
+}
 
-      #messages { list-style-type: none; margin: 0; padding: 0; }
-      #messages > li { padding: 0.5rem 1rem; }
-      #messages > li:nth-child(odd) { background: #efefef; }
+#messages {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+#messages > li {
+  padding: 0.5rem 1rem;
+}
+#messages > li:nth-child(odd) {
+  background: #efefef;
+}
