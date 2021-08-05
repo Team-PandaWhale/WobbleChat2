@@ -6,16 +6,12 @@ const answersController = {};
 //gets details from messages
 //puts details into question
 answersController.getAnswers = (req, res, next) => {
-  //needs to pull existing Messages related to Questions (join tables)
-  console.log('are we hitting ')
   const prevAnswers = `SELECT answers.*, questions.url FROM answers INNER JOIN questions ON answers.questionId = questions.id AND questions.id = $1`;
-  //changed this from req.params to req.body - it should be body so that might have b
-  const params = [req.body.questionId];
+  const params = [req.query.questionId];
   pool
     .query(prevAnswers, params)
     .then((data) => {
       res.locals.answers = data.rows;
-      console.log('the gotten answers: ', res.locals.answers);
       return next();
     })
     .catch((err) => {
