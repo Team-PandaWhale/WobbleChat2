@@ -19,6 +19,21 @@ const QuestionCard = (props) => {
 
   // console.log("id equals: ", id);
 
+  const setArrays = (result) => {
+    const array = [];
+      for (let i = result.data.length - 1; i >= 0; i--) {
+        const el = result.data[i];
+        if (!el) return;
+        // console.log("What is being put in our el var", el);
+        array.unshift(
+          <div key={i}>
+            <p>Answer:  {el.content}</p>
+          </div>
+        );
+      }
+      setAnswerArray(array);
+  }
+
   useEffect(async () => {
     try {
       const result = await axios({
@@ -29,50 +44,33 @@ const QuestionCard = (props) => {
         },
       });
       console.log('USE EFFECT RAN AGAIN');
-      // console.log('result in use effect axios call is: ', result);
-      const array = [];
-      for (let i = result.data.length - 1; i > result.data.length - 6; i--) {
-        const el = result.data[i];
-        // console.log("What is being put in our el var", el);
-        array.push(
-          <div key={i}>
-            <p>{el.content}</p>
-          </div>
-        );
-      }
-      setAnswerArray(array);
+      setArrays(result);
     } catch (error) {
       console.log("there was an error getting errors: ", error);
     }
-
-    // return function cleanup() {
-    //   setAnswer("");
-    //   setAnswerBoxVisible(false);
-    // };
   }, []);
 
   const handleClick = async (e) => {
     // console.log("ANSWER IS", answer);
     // e.preventDefault();
     try {
-      const test = await axios({
+      const result = await axios({
         method: "post",
-        url: "/api/answers",
+        url: "/api/answers/",
         data: {
           dateCreated: "1/1/2020",
           questionId: id,
           content: answer,
         },
+        params: {
+          questionId: id,
+        },
       });
-      // console.log('TEST VARIABLE IS', test);
+      console.log('BEFORE SET ARRAYS, AFTER TRY IN POST: ', result);
+      setArrays(result);
     } catch (error) {
       console.log(error);
     }
-    return (
-      <div className="answerText">
-        <p>{"placeHolder"}</p>
-      </div>
-    );
   };
 
   function renderDropDown() {
@@ -90,7 +88,7 @@ const QuestionCard = (props) => {
         />
         <button
           onClick={() => {
-            if (answerBoxVisible) return;
+            // if (answerBoxVisible) return;
             setDropDownVisible(false);
             setPosted(!posted);
             setAnswerBoxVisible(true);
