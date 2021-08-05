@@ -23,6 +23,11 @@ router.post(
   }
 );
 
+router.delete('/', answersController.deleteAnswers, questionController.deleteQuestion, questionController.getQuestions, (req, res) => {
+    return res.status(200).json({newQuestion: res.locals.questions[0].url,
+      questions: res.locals.questions,});
+})
+
 //get all messages when user enters a chat
 router.get("/:id", answersController.getAnswers, (req, res) => {
   return res.status(200).json({

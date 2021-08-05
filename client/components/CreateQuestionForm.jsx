@@ -13,6 +13,8 @@ const CreateQuestionForm = (props) => {
   //first item = current value, second item = a setter function, to update value, destrctured via [] and initialized to empty string
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
+  // const [questions, setQuestions] = useState(props.questions);
+  // console.log('THIS IS PROPS QUESTIONS', props.questions);
 
   const handleSubmit = async (e) => {
     // console.log('title', title);
@@ -31,6 +33,7 @@ const CreateQuestionForm = (props) => {
       });
 
       console.log("DATA IS ", data);
+      props.refreshQuestions(data.data.questions);
     } catch (error) {
       console.log(error);
     }
@@ -58,8 +61,6 @@ const CreateQuestionForm = (props) => {
       <div className="submitQuestion">
         <input type="submit" value="Submit" />
       </div>
-
-      {/* <li>Question title is: { title } </li> */}
     </form>
   );
 };

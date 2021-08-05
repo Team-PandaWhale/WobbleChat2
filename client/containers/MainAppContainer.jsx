@@ -15,6 +15,11 @@ class MainAppContainer extends Component {
       fetchedData: false,
       questions: [],
     };
+    this.refreshQuestions = this.refreshQuestions.bind(this);
+  }
+
+  refreshQuestions(questionsArr) {
+    this.setState({...this.state, questions: questionsArr});
   }
 
   componentDidMount() {
@@ -77,9 +82,9 @@ class MainAppContainer extends Component {
         </Card> */}
         <br />
         <div className="createQuestionForm">
-          <CreateQuestionForm />
+          <CreateQuestionForm questions={this.state.questions} refreshQuestions={this.refreshQuestions}/>
           </div>
-        <QuestionsContainer questions={this.state.questions} />
+        <QuestionsContainer questions={this.state.questions} refreshQuestions={this.refreshQuestions}/>
       </>
     );
   }

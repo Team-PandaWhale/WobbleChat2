@@ -73,6 +73,23 @@ const QuestionCard = (props) => {
     }
   };
 
+  const handleDelete = async (e) => {
+    // e.preventDefault();
+    try {
+      const result = await axios({
+        method: "delete",
+        url: "/api/questions", 
+        params: { //we only need to send the id of the card
+          questionId: id,
+        },
+      });
+      //HERE GOES THE STATE SETTER
+      props.refreshQuestions(result.data.questions);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
   function renderDropDown() {
     // console.log("TESTING RENDER DROP DOWN");
     return (
@@ -106,6 +123,7 @@ const QuestionCard = (props) => {
       <div className="topQuestionBox">
         <h2>Subject: {title}</h2>
         <h4>Question: {description}</h4>
+        <button onClick={handleDelete}>Delete Question</button>
       </div>
       <div className="answersBox">{answerArray}</div>
       <div className="answerButton">

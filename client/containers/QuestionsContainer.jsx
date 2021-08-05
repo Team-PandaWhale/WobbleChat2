@@ -4,7 +4,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import QuestionCard from "../components/QuestionCard";
 
-const QuestionsContainer = ({ questions }) => {
+const QuestionsContainer = ({ refreshQuestions, questions }) => {
   //questions object passed down as prop from MainAppContainer
   //  const [{ questionId, isActive, title, description, chatURL }] = questions;
   console.log("QUESTIONS", questions);
@@ -20,6 +20,7 @@ const QuestionsContainer = ({ questions }) => {
             creator={creator}
             chatURL={url}
             id={id}
+            refreshQuestions={refreshQuestions}
           />
         );
       }
