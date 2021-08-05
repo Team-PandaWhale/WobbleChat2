@@ -150,6 +150,14 @@ button {
   color: white;
 }
 
+.cardBox {
+  border: 2px solid white;
+  max-width: 500px;
+  min-width: 400px;
+  color: white;
+  margin-bottom: 20px;
+}
+
 .answerButton {
   display: flex;
   justify-content: center;

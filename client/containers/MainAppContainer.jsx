@@ -66,7 +66,7 @@ class MainAppContainer extends Component {
               <Button variant="primary">Ask a question</Button>
             </Link>
             &nbsp;&nbsp;
-            <Link to={"/logout"}>
+            <Link to={"/login"}>
               <Button variant="secondary">Sign out</Button>
             </Link>
           </div>
