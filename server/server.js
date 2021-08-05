@@ -27,6 +27,7 @@ app.use("/api/answers", answersRouter);
 // });
 
 app.use(globalErrorHandler); // Added global error middlware
-app.listen(3000, () => {
+
+module.exports = app.listen(3000, () => {
   console.log("Express server listening on port 3000.");
 });
