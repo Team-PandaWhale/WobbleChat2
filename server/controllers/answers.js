@@ -6,11 +6,17 @@ const answersController = {};
 //gets details from messages
 //puts details into question
 answersController.getAnswers = (req, res, next) => {
+  // check if the id exist
+  // if (req.query === undefined) return next({error: 'please input a valid req.query'});
+  // if (req.query.questionId === undefined || typeof req.query.questionId !== 'number') {
+  //   return next({error: 'please input a valid questionId'});
+  // }
   const prevAnswers = `SELECT answers.*, questions.url FROM answers INNER JOIN questions ON answers.questionId = questions.id AND questions.id = $1`;
   const params = [req.query.questionId];
   pool
     .query(prevAnswers, params)
     .then((data) => {
+      //check if data.rows has length
       res.locals.answers = data.rows;
       return next();
     })
@@ -57,5 +63,21 @@ answersController.postAnswers = (req, res, next) => {
   //   "we skipped the rest of query and made it to the end of the postAnswers middleware"
   // );
 };
+
+answersController.deleteAnswers = (req, res, next) => {
+
+  const id = [req.query.questionId];
+  const deleteAnswers = 'DELETE FROM answers WHERE answers.questionId = $1';
+  pool 
+    .query(deleteAnswers, id)
+    .then((data) => {
+      console.log('we have successfully deleted the answers: ', data);
+      return next();
+    })
+    .catch((err) => {
+      console.log('there was an error in deleting answers: ', err);
+      return next(err);
+    })
+}
 
 module.exports = answersController;

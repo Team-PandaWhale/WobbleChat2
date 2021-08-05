@@ -5,6 +5,10 @@ const pool = require("../db/connect");
 const questionController = {};
 let dummyCounter = 100;
 
+
+//
+
+
 //getQuestions should return an array of Questions
 questionController.getQuestions = (req, res, next) => {
   const questionQuery =
@@ -42,17 +46,52 @@ questionController.postQuestion = (req, res, next) => {
   console.log(dummyCounter, "DUMMY COUNTER");
   pool
     .query(insertQuestion, params)
-    .then((data) => {
+    .then(data => {
       return next();
     })
-    .catch((err) => {
+    .catch(err => {
       console.log(err);
       return next({
         status: 500,
-        message: "Error creating Questions",
+        message: "Error creating Questions.",
       });
     });
 };
+
+
+questionController.deleteQuestion = (req, res, next) => {
+
+  const id = [req.query.questionId];
+  const deleteQuestions = "DELETE FROM questions WHERE questions.id = $1"
+  console.log('Successfully entered delete Questions')
+  pool
+  .query(deleteQuestions, id)
+  .then(data => {
+    console.log('data!!!: ', data);
+    return next();
+  })
+  .catch(err => {
+    console.log(err);
+    return next ({
+      status: 500,
+      message: "Error deleting Question."
+    })
+  })
+  
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
 
 questionController.setInactive = (req, res, next) => {
   // Grab the user ID from cookies
