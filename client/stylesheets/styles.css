@@ -28,8 +28,8 @@ textarea:focus, input:focus{
 /* app container styling */
 body {
   margin: 0px;
-  padding-left: 1rem;
-  padding-right: 1rem;
+  /* padding-left: 1rem;
+  padding-right: 1rem; */
   background-color: #14212c !important;
   font-family: 'Lato' !important;
 }
@@ -100,6 +100,7 @@ button {
   align-items: center;
   margin-bottom: 0px;
   padding-top: 10px;
+  margin-left: 20px;
 }
 
 .createQuestionForm {
@@ -245,4 +246,55 @@ button {
 
 .dropdown-body textarea {
   width: 100%;
+}
+
+.login, .signup {
+  margin-top: 100px;
+  margin-left: 1000px;
+  max-width: 700px;
+  padding: 5px;
+  border: 2px solid white;
+  color: white;
+}
+
+.login {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.signup {
+  display: flex;
+  align-items: center;
+}
+
+.signupContent {
+  margin-left: 25px;
+  height: 262px;
+}
+
+
+
+.loginContent, .signupContent {
+  position: relative;
+}
+
+.loginContent h5, .signup h5 {
+  margin-left: 0px;
+}
+
+
+
+.login h1, .signup h1 {
+  margin-bottom: 30px;
+}
+
+.login h1:hover, .signup h1:hover {
+  color: #0b50b4;
+  cursor: pointer;
+}
+
+.login input, .signup input {
+  margin-bottom: 10px;
+  margin-right: 10px;
 }
