@@ -38,6 +38,7 @@ const CreateQuestionForm = (props) => {
 
   return (
     <form className="topForm" onSubmit={handleSubmit}>
+      <h2>Too shy to ask a question? Ask one anonymously - right here! </h2>
       <label id="title">
         <textarea
           type="text"
