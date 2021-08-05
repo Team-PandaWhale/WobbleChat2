@@ -3,6 +3,7 @@ import { useState } from "react";
 import { useHistory } from "react-router-dom";
 import auth from "./Auth";
 import { Link, withRouter } from "react-router-dom";
+import "./stylesheets/styles.css";
 
 const Login = (props) => {
   const [userData, setUserData] = useState({ username: "", password: "" });
@@ -52,8 +53,16 @@ const Login = (props) => {
 
   return (
     <div>
-      <h1>Welcome, please log in.</h1>
+       <div className="top-menu-container">
+      <Link to={"/"} className="brandname">
+            Shy Panda
+          </Link>
+      </div>
+    <div className="login">
+      <div className="loginContent">
+      <h1>Welcome to Shy Panda, please log in.</h1>
       <form onSubmit={handleSubmit}>
+        <h5>Username:</h5>
         <input
           id="username"
           className="form-field"
@@ -62,20 +71,24 @@ const Login = (props) => {
           value={userData.username}
           onChange={handleUsernameInputChange}
         />
+        <h5>Password:</h5>
         <input
           id="username"
           className="form-field"
-          type="text"
+          type="password"
           name="username"
           value={userData.password}
           onChange={handlePasswordInputChange}
         />
-        <input type="submit" value="submit" />
+        <input type="submit" value="Submit" />
         <p>
           Don't have an account? Sign up <Link to="/signup">here</Link>
         </p>
       </form>
+      </div>
     </div>
+    </div>
+   
   );
 };
 
