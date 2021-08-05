@@ -21,18 +21,18 @@ const QuestionCard = (props) => {
 
   const setArrays = (result) => {
     const array = [];
-      for (let i = result.data.length - 1; i >= 0; i--) {
-        const el = result.data[i];
-        if (!el) return;
-        // console.log("What is being put in our el var", el);
-        array.unshift(
-          <div key={i}>
-            <p>Answer:  {el.content}</p>
-          </div>
-        );
-      }
-      setAnswerArray(array);
-  }
+    for (let i = result.data.length - 1; i >= 0; i--) {
+      const el = result.data[i];
+      if (!el) return;
+      // console.log("What is being put in our el var", el);
+      array.unshift(
+        <div key={i}>
+          <p>Answer: {el.content}</p>
+        </div>
+      );
+    }
+    setAnswerArray(array);
+  };
 
   useEffect(async () => {
     try {
@@ -43,7 +43,7 @@ const QuestionCard = (props) => {
           questionId: id,
         },
       });
-      console.log('USE EFFECT RAN AGAIN');
+      console.log("USE EFFECT RAN AGAIN");
       setArrays(result);
     } catch (error) {
       console.log("there was an error getting errors: ", error);
@@ -66,7 +66,7 @@ const QuestionCard = (props) => {
           questionId: id,
         },
       });
-      console.log('BEFORE SET ARRAYS, AFTER TRY IN POST: ', result);
+      console.log("BEFORE SET ARRAYS, AFTER TRY IN POST: ", result);
       setArrays(result);
     } catch (error) {
       console.log(error);
@@ -102,28 +102,26 @@ const QuestionCard = (props) => {
   }
 
   return (
-    <Card key={id}>
-      <Card.Body>
-        <div className="question-container">
-          <Card.Title>Subject: {title}</Card.Title>
-        </div>
-        <Card.Text>Question: {description}</Card.Text>
-        <div className="answersBox">{answerArray}</div>
-        <div className="answerButton">
-          <Button
-            variant="primary"
-            className="min-button"
-            onClick={() => setDropDownVisible(!dropDownVisible)}
-          >
-            Answer question
-          </Button>
+    <div className="cardBox">
+      <div className="question-container">
+        <p>Subject: {title}</p>
+        <p>Question: {description}</p>
+      </div>
+      <div className="answersBox">{answerArray}</div>
+      <div className="answerButton">
+        <Button
+          variant="primary"
+          className="min-button"
+          onClick={() => setDropDownVisible(!dropDownVisible)}
+        >
+          Answer question
+        </Button>
 
-          <div className="answerInput">
-            {[dropDownVisible && renderDropDown()]}
-          </div>
+        <div className="answerInput">
+          {[dropDownVisible && renderDropDown()]}
         </div>
-      </Card.Body>
-    </Card>
+      </div>
+    </div>
   );
 };
 
