@@ -101,6 +101,7 @@ button {
   margin-bottom: 0px;
   padding-top: 10px;
   margin-left: 20px;
+  margin-right: 20px;
 }
 
 .createQuestionForm {
@@ -171,13 +172,32 @@ button {
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
-  font-size: 25px;
+  font-size: 100%;
   margin-top: 10px;
   margin-bottom: 10px;
+  margin-left: 10px;
+}
+
+.topQuestionBox h2{
+  text-align: center;
+}
+
+.topQuestionBox h4 {
+  color: lighten(#0B5ED7, 20%);
 }
 
 .topQuestionBox p {
   margin-bottom: 5px;
+  margin-left: 5px;
+}
+
+.topQuestionBox button {
+  font-size: 15px;
+  background-color: white;
+  border-radius: 70px;
+  height: 25px;
+  align-self: flex-end;
+  margin-right: 12px;
 }
 
 .answersBox {
@@ -207,6 +227,11 @@ button {
   margin-bottom: 10px;
 }
 
+.answerButton button:hover {
+  background-color: white;
+  color: #0B5ED7;
+}
+
 
 
 .answerInput {
@@ -218,6 +243,11 @@ button {
   height: 30px;
   width: 80px;
   border-radius: 15px;
+}
+
+.submitQuestion input:hover {
+  background-color: #0B5ED7;
+  color: white;
 }
 
 .min-button {
@@ -250,7 +280,7 @@ button {
 
 .login, .signup {
   margin-top: 100px;
-  margin-left: 1000px;
+  margin-left: 850px;
   max-width: 700px;
   padding: 5px;
   border: 2px solid white;

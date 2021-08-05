@@ -121,9 +121,10 @@ const QuestionCard = (props) => {
   return (
     <div className="question-container">
       <div className="topQuestionBox">
+        <button onClick={handleDelete}>X</button>
         <h2>Subject: {title}</h2>
         <h4>Question: {description}</h4>
-        <button onClick={handleDelete}>Delete Question</button>
+        
       </div>
       <div className="answersBox">{answerArray}</div>
       <div className="answerButton">
