@@ -72,6 +72,15 @@ button {
   align-items: center;
 }
 
+.question-window h2 {
+  margin-bottom: 20px;
+}
+
+.question-window h2:hover {
+  color: #f8ee62;
+  cursor: pointer;
+}
+
 .mainSection {
   margin-bottom: 5rem;
 }
@@ -98,7 +107,7 @@ button {
   justify-content: center;
   min-width: 20rem;
   height: 200px;
-  margin-bottom: 10px;
+  margin-bottom: 50px;
 }
 
 .createQuestionForm label {
@@ -117,7 +126,16 @@ button {
 .topForm {
   display: flex;
   flex-direction: column;
-  align-items: flex-end;
+  align-items: center;
+}
+
+.topForm h2 {
+  margin-bottom: 30px;
+}
+
+.topForm h2:hover {
+  color: #f8ee62;
+  cursor: pointer;
 }
 
 .topForm input {
@@ -144,7 +162,7 @@ button {
   border: 2px solid white;
   width: 40rem;
   color: white;
-  margin-bottom: 20px;
+  margin-bottom: 40px;
 }
 
 .topQuestionBox {
@@ -184,7 +202,8 @@ button {
   color: white;
   background-color: #0B5ED7;
   border-radius: 25px;
-  height: 50px;
+  height: 42px;
+  margin-bottom: 10px;
 }
 
 
@@ -194,8 +213,9 @@ button {
 }
 
 .submitQuestion input {
+  border: none;
+  height: 30px;
   width: 80px;
-  border-color: none;
   border-radius: 15px;
 }
 
@@ -204,8 +224,25 @@ button {
   margin-left: 5px;
 }
 
+.dropdown-body {
+  width: 300px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-top: 20px;
+}
+
 .dropdown-body button {
-  margin-left: 10px;
+  display: flex;
+  justify-content: center;
+  width: 40%;
+  height: 28px;
+  margin: 20px 0px 30px 00px;
   color: white;
-  border-radius: 5px;
+  border-radius: 10px;
+}
+
+.dropdown-body textarea {
+  width: 100%;
 }

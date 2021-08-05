@@ -77,7 +77,7 @@ const QuestionCard = (props) => {
     // console.log("TESTING RENDER DROP DOWN");
     return (
       <div className="dropdown-body">
-        <input
+        <textarea
           type="text"
           value={answer}
           placeholder="Answer"
@@ -104,8 +104,8 @@ const QuestionCard = (props) => {
   return (
     <div className="question-container">
       <div className="topQuestionBox">
-        <p>Subject: {title}</p>
-        <p>Question: {description}</p>
+        <h2>Subject: {title}</h2>
+        <h4>Question: {description}</h4>
       </div>
       <div className="answersBox">{answerArray}</div>
       <div className="answerButton">
